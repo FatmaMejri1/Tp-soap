@@ -1,6 +1,6 @@
 # TP-SOAP: Calculator Web Service
 
-A SOAP web service implementation for basic arithmetic operations (Add, Subtract, Multiply, Divide) built with Node.js, Express, and the SOAP library.
+A SOAP web service implementation for basic arithmetic operations (Add, Subtract, Multiply, Divide, Modulo) built with Node.js, Express, and the SOAP library.
 
 ## Project Structure
 
@@ -20,6 +20,7 @@ tp-soap/
 - **Subtract**: Subtraction of two numbers
 - **Multiply**: Multiplication of two numbers
 - **Divide**: Division with zero-division error handling
+- **Modulo**: Modulo operation (remainder) with zero-modulo error handling
 
 ## Prerequisites
 
@@ -88,6 +89,13 @@ Divides the first number by the second.
 **Output**: `{ result: number }`  
 **Error**: Division by zero throws `DIVIDE_BY_ZERO` fault
 
+### Modulo
+Calculates the remainder (modulo) of the first number divided by the second.
+
+**Input**: `{ a: number, b: number }`  
+**Output**: `{ result: number }`  
+**Error**: Modulo by zero throws `MODULO_BY_ZERO` fault
+
 ## Dependencies
 
 - **express**: ^5.2.1 - Web framework
@@ -102,6 +110,8 @@ const soap = require('soap');
 async function test() {
   const client = await soap.createClientAsync('http://localhost:8000/calculator?wsdl');
   
+
+
   // Add 10 + 5
   const result = await client.AddAsync({ a: 10, b: 5 });
   console.log('Result:', result[0].result); // Output: 15
@@ -118,13 +128,25 @@ This diagram shows the interaction between the SOAP client and server, with the 
 
 ## Screenshots
 
+### Server Startup
 ![Server Running](./docs/server-screenshot.png)
 
 The server startup screen showing the service is available on localhost:8000 with the WSDL endpoint accessible.
 
-![Client Test Results](./docs/client-screenshot.png)
+### Client Tests - Basic Operations
+![Client Basic Operations](./docs/client-basic-tests.png)
 
-Client test output showing successful execution of all calculator operations.
+Client test output showing successful execution of Add, Subtract, Multiply, and Divide operations.
+
+### Client Tests - Modulo Operation
+![Client Modulo Tests](./docs/test-modulo.png)
+
+Client test output showing the new Modulo operation working correctly.
+
+### Client Tests - Error Handling
+![Client Error Tests](./docs/client-error-tests.png)
+
+Client test output demonstrating proper error handling for division and modulo by zero.
 
 ## License
 
@@ -135,4 +157,4 @@ ISC
 FatmaMejri1
 
 
-Result : 
+
