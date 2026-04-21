@@ -59,6 +59,15 @@ const calculatorService = {
         const result = parseFloat(args.a) % parseFloat(args.b); 
         console.log(`Modulo: ${args.a} % ${args.b} = ${result}`); 
         return { result: result }; 
+      }, 
+       
+      // Opération Power (puissance) 
+      Power: function(args) { 
+        const base = parseFloat(args.a); 
+        const exponent = parseFloat(args.b); 
+        const result = Math.pow(base, exponent); 
+        console.log(`Power: ${args.a} ^ ${args.b} = ${result}`); 
+        return { result: result }; 
       } 
     } 
   } 

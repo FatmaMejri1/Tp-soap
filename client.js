@@ -54,6 +54,20 @@ error.root?.Envelope?.Body?.Fault?.Reason?.Text || error.message);
 error.root?.Envelope?.Body?.Fault?.Reason?.Text || error.message); 
     } 
   
+    // Test Power 
+    console.log('\n--- Tests de l\'opération Power ---\n'); 
+    const powResult1 = await client.PowerAsync({ a: 2, b: 3 }); 
+    console.log(`Power: 2 ^ 3 = ${powResult1[0].result}`); 
+  
+    const powResult2 = await client.PowerAsync({ a: 5, b: 2 }); 
+    console.log(`Power: 5 ^ 2 = ${powResult2[0].result}`); 
+  
+    const powResult3 = await client.PowerAsync({ a: 2, b: -1 }); 
+    console.log(`Power: 2 ^ -1 = ${powResult3[0].result}`); 
+  
+    const powResult4 = await client.PowerAsync({ a: 0, b: 5 }); 
+    console.log(`Power: 0 ^ 5 = ${powResult4[0].result}`); 
+  
   } catch (error) { 
     console.error('Erreur de connexion:', error.message); 
   } 

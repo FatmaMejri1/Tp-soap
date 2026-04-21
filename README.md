@@ -1,6 +1,6 @@
 # TP-SOAP: Calculator Web Service
 
-A SOAP web service implementation for basic arithmetic operations (Add, Subtract, Multiply, Divide, Modulo) built with Node.js, Express, and the SOAP library.
+A SOAP web service implementation for basic arithmetic operations (Add, Subtract, Multiply, Divide, Modulo, Power) built with Node.js, Express, and the SOAP library.
 
 ## Project Structure
 
@@ -21,6 +21,7 @@ tp-soap/
 - **Multiply**: Multiplication of two numbers
 - **Divide**: Division with zero-division error handling
 - **Modulo**: Modulo operation (remainder) with zero-modulo error handling
+- **Power**: Power operation (a^b) using Math.pow(), handles negative exponents
 
 ## Prerequisites
 
@@ -94,6 +95,13 @@ Calculates the remainder (modulo) of the first number divided by the second.
 
 **Input**: `{ a: number, b: number }`  
 **Output**: `{ result: number }`  
+
+### Power
+Calculates the power of the first number raised to the second number (a^b).
+
+**Input**: `{ a: number, b: number }`  
+**Output**: `{ result: number }`  
+**Note**: Handles negative exponents correctly using Math.pow()
 **Error**: Modulo by zero throws `MODULO_BY_ZERO` fault
 
 ## Dependencies
@@ -142,7 +150,10 @@ Client test output showing successful execution of Add, Subtract, Multiply, and 
 ![Client Modulo Tests](./docs/test-modulo.png)
 
 Client test output showing the new Modulo operation working correctly.
+### Client Tests - Power Operation
+![Client Power Tests](./docs/client-power-tests.png)
 
+Client test output showing the Power operation with various test cases including negative exponents.
 ### Client Tests - Error Handling
 ![Client Error Tests](./docs/client-error-tests.png)
 

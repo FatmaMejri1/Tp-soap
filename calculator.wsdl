@@ -57,6 +57,10 @@
       <input message="tns:CalculatorInput"/> 
       <output message="tns:CalculatorOutput"/> 
     </operation> 
+    <operation name="Power"> 
+      <input message="tns:CalculatorInput"/> 
+      <output message="tns:CalculatorOutput"/> 
+    </operation> 
   </portType> 
   
   <!-- Binding --> 
@@ -85,6 +89,11 @@
     </operation> 
     <operation name="Modulo"> 
       <soap:operation soapAction="Modulo"/> 
+      <input><soap:body use="literal"/></input> 
+      <output><soap:body use="literal"/></output> 
+    </operation> 
+    <operation name="Power"> 
+      <soap:operation soapAction="Power"/> 
       <input><soap:body use="literal"/></input> 
       <output><soap:body use="literal"/></output> 
     </operation> 
