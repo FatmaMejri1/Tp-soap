@@ -1,27 +1,29 @@
 # TP-SOAP: Calculator Web Service
 
-A SOAP web service implementation for basic arithmetic operations (Add, Subtract, Multiply, Divide, Modulo, Power) built with Node.js, Express, and the SOAP library.
+A SOAP web service project with two services: CalculatorService for arithmetic operations and TemperatureService for temperature conversions, built with Node.js, Express, and the SOAP library.
 
 ## Project Structure
 
 ```
 tp-soap/
-├── calculator.wsdl     # WSDL schema definition for the calculator service
-├── server.js           # SOAP server implementation
-├── client.js           # SOAP client with test cases
-├── package.json        # Project dependencies and scripts
-├── README.md           # This file
-└── .gitignore          # Git ignore file
+├── calculator.wsdl           # WSDL schema for calculator service
+├── server.js                 # Calculator SOAP server
+├── client.js                 # Calculator client with tests
+├── temperature.wsdl          # WSDL schema for temperature service
+├── temperature-server.js     # Temperature SOAP server
+├── temperature-client.js     # Temperature client with tests
+├── package.json              # Project dependencies and scripts
+├── README.md                 # This file
+└── .gitignore                # Git ignore file
 ```
 
-## Features
+## Services
 
-- **Add**: Addition of two numbers
-- **Subtract**: Subtraction of two numbers
-- **Multiply**: Multiplication of two numbers
-- **Divide**: Division with zero-division error handling
-- **Modulo**: Modulo operation (remainder) with zero-modulo error handling
-- **Power**: Power operation (a^b) using Math.pow(), handles negative exponents
+### CalculatorService
+Arithmetic operations: Add, Subtract, Multiply, Divide, Modulo, Power
+
+### TemperatureService
+Temperature conversions: Celsius ↔ Fahrenheit, Celsius → Kelvin
 
 ## Prerequisites
 
@@ -44,25 +46,41 @@ npm install
 ## Usage
 
 ### Start the Server
+Calculator Service
+
+#### Start the Calculator Server
 
 ```bash
 npm start
 ```
 
-The server will start on `http://localhost:8000`
+Server runs on `http://localhost:8000`
 
-WSDL is available at: `http://localhost:8000/calculator?wsdl`
+WSDL available at: `http://localhost:8000/calculator?wsdl`
 
-### Run the Client
-
-In a new terminal:
+#### Test Calculator Operations
 
 ```bash
 node client.js
 ```
 
-This will test all calculator operations including error handling for division by zero.
+### Temperature Service
 
+#### Start the Temperature Server
+
+```bash
+npm run start:temp
+```
+
+Server runs on `http://localhost:8001`
+
+WSDL available at: `http://localhost:8001/temperature?wsdl`
+
+#### Test Temperature Conversions
+
+```bash
+node temperature-client.js
+```
 ## API Operations
 
 ### Add
