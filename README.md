@@ -138,12 +138,12 @@ Calculates the power of the first number raised to the second number (a^b).
 
 
 ### Client Tests 
-![Client Modulo Tests](./docs/Client-test.png)
+![Calculator Client Tests](./docs/Client-test.png)
 
 This output shows that all calculator operations are working correctly:
   
 ### Temperature Service
-  ![Client Modulo Tests](./docs/TempService.png)
+  ![Temperature Service Tests](./docs/TempService.png)
 Client test output showing temperature conversion operations.
  
 ### Exemple de  Postman Test 
@@ -156,7 +156,7 @@ Headers:
 Content-Type: text/xml
 SOAPAction: <Add>
 
- ![Client Modulo Tests](./docs/createCalc.png)
+ ![Postman Calculator Request](./docs/createCalc.png)
 
 ## Author
 
