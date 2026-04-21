@@ -37,6 +37,23 @@ Object.keys(client.CalculatorService.CalculatorPort));
 error.root?.Envelope?.Body?.Fault?.Reason?.Text || error.message); 
     } 
   
+    // Test Modulo 
+    console.log('\n--- Tests de l\'opération Modulo ---\n'); 
+    const modResult1 = await client.ModuloAsync({ a: 17, b: 5 }); 
+    console.log(`Modulo: 17 % 5 = ${modResult1[0].result}`); 
+  
+    const modResult2 = await client.ModuloAsync({ a: 20, b: 3 }); 
+    console.log(`Modulo: 20 % 3 = ${modResult2[0].result}`); 
+  
+    // Test Modulo par zéro (erreur) 
+    console.log('\n--- Test erreur: Modulo par zéro ---'); 
+    try { 
+      await client.ModuloAsync({ a: 10, b: 0 }); 
+    } catch (error) { 
+      console.log('❌ Erreur capturée:', 
+error.root?.Envelope?.Body?.Fault?.Reason?.Text || error.message); 
+    } 
+  
   } catch (error) { 
     console.error('Erreur de connexion:', error.message); 
   } 
