@@ -128,58 +128,35 @@ Calculates the power of the first number raised to the second number (a^b).
 - **soap**: ^1.9.1 - SOAP library
 - **body-parser**: ^2.2.2 - Middleware for parsing request bodies
 
-## Example
 
-```javascript
-const soap = require('soap');
 
-async function test() {
-  const client = await soap.createClientAsync('http://localhost:8000/calculator?wsdl');
+
+
+
+## Result Screenshots
+
+
+
+### Client Tests 
+![Client Modulo Tests](./docs/Client-test.png)
+
+This output shows that all calculator operations are working correctly:
   
+### Temperature Service
+  ![Client Modulo Tests](./docs/TempService.png)
+Client test output showing temperature conversion operations.
+ 
+### Exemple de  Postman Test 
+ 
+For ALL requests:
 
+Method: POST
+URL: http://localhost:8000/calculator
+Headers:
+Content-Type: text/xml
+SOAPAction: <Add>
 
-  // Add 10 + 5
-  const result = await client.AddAsync({ a: 10, b: 5 });
-  console.log('Result:', result[0].result); // Output: 15
-}
-
-test();
-```
-
-## Architecture Diagram
-
-![SOAP Calculator Architecture](./docs/architecture.png)
-
-This diagram shows the interaction between the SOAP client and server, with the WSDL schema as the contract between them.
-
-## Screenshots
-
-### Server Startup
-![Server Running](./docs/server-screenshot.png)
-
-The server startup screen showing the service is available on localhost:8000 with the WSDL endpoint accessible.
-
-### Client Tests - Basic Operations
-![Client Basic Operations](./docs/client-basic-tests.png)
-
-Client test output showing successful execution of Add, Subtract, Multiply, and Divide operations.
-
-### Client Tests - Modulo Operation
-![Client Modulo Tests](./docs/test-modulo.png)
-
-Client test output showing the new Modulo operation working correctly.
-### Client Tests - Power Operation
-![Client Power Tests](./docs/client-power-tests.png)
-
-Client test output showing the Power operation with various test cases including negative exponents.
-### Client Tests - Error Handling
-![Client Error Tests](./docs/client-error-tests.png)
-
-Client test output demonstrating proper error handling for division and modulo by zero.
-
-## License
-
-ISC
+ ![Client Modulo Tests](./docs/createCalc.png)
 
 ## Author
 
